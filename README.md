@@ -1,1 +1,1 @@
-# Netology
+# Netology.devops
