@@ -1,0 +1,5 @@
+1 Игнорировать все файлы в каталоге /.terraform в любом месте репозитория
+2 Игнорировать файлы с расширением: tfstate, tfvars, 
+3 Игнорировать все файлы в имени которых присутствует .tfstate.
+4 Игнорировать все файлы имя которых оканчивается на _override.tf, _override.tf.json
+5 Игнорировать файлы crash.log, override.tf, override.tf.json, .terraformrc, terraform.rc
