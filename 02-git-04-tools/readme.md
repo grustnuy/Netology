@@ -2,7 +2,8 @@
 1. __Найдите полный хеш и комментарий коммита, хеш которого начинается на aefea.__
 
 		git show aefea
-		commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545 /Update CHANGELOG.md
+		commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545 
+		Update CHANGELOG.md
 
 2.  __Какому тегу соответствует коммит 85024d3?__
 
