@@ -1,72 +1,76 @@
-1.	Работа c HTTP через телнет.
--	Подключитесь утилитой телнет к сайту stackoverflow.com telnet stackoverflow.com 80
-- 	отправьте HTTP запрос
-	`GET /questions HTTP/1.0
-	`HOST: stackoverflow.com`
-	[press enter]
-	[press enter]
-1.	В ответе укажите полученный HTTP код, что он означает - Проверка состояния HTTP.
+1.	Р Р°Р±РѕС‚Р° c HTTP С‡РµСЂРµР· С‚РµР»РЅРµС‚.
+-	РџРѕРґРєР»СЋС‡РёС‚РµСЃСЊ СѓС‚РёР»РёС‚РѕР№ С‚РµР»РЅРµС‚ Рє СЃР°Р№С‚Сѓ stackoverflow.com telnet stackoverflow.com 80
+- 	РѕС‚РїСЂР°РІСЊС‚Рµ HTTP Р·Р°РїСЂРѕСЃ
+
+		GET /questions HTTP/1.0
+		HOST: stackoverflow.com
+		[press enter]
+		[press enter]
+	Р’ РѕС‚РІРµС‚Рµ СѓРєР°Р¶РёС‚Рµ РїРѕР»СѓС‡РµРЅРЅС‹Р№ HTTP РєРѕРґ, С‡С‚Рѕ РѕРЅ РѕР·РЅР°С‡Р°РµС‚ - РџСЂРѕРІРµСЂРєР° СЃРѕСЃС‚РѕСЏРЅРёСЏ HTTP.
 	
-	HTTP/1.1 301 Moved Permanently                                                                                          
-	cache-control: no-cache, no-store, must-revalidate                                                                      
-	location: https://stackoverflow.com/questions                                                                           
-	x-request-guid: e16f3095-3bdf-4c92-959f-9d3a95f4eb5f                                                                    
-	feature-policy: microphone 'none'; speaker 'none'                                                                       
-	content-security-policy: upgrade-insecure-requests; frame-ancestors 'self' https://stackexchange.com                    
-	Accept-Ranges: bytes                                                                                                    
-	Date: Mon, 29 Nov 2021 18:11:09 GMT                                                                                     
-	Via: 1.1 varnish                                                                                                        
-	Connection: close                                                                                                       
-	X-Served-By: cache-fra19127-FRA                                                                                         
-	X-Cache: MISS                                                                                                           
-	X-Cache-Hits: 0                                                                                                         
-	X-Timer: S1638209469.461872,VS0,VE92                                                                                    
-	Vary: Fastly-SSL                                                                                                        
-	X-DNS-Prefetch-Control: off                                                                                             
-	Set-Cookie: prov=7d8b7bb7-bf91-473c-99e1-94eac4950ff0; domain=.stackoverflow.com; expires=Fri, 01-Jan-2055 00:00:00 GMT;
-	 path=/; HttpOnly                                                                                                       
+		HTTP/1.1 301 Moved Permanently                                                                                          
+		cache-control: no-cache, no-store, must-revalidate                                                                      
+		location: https://stackoverflow.com/questions                                                                           
+		x-request-guid: e16f3095-3bdf-4c92-959f-9d3a95f4eb5f                                                                    
+		feature-policy: microphone 'none'; speaker 'none'                                                                       
+		content-security-policy: upgrade-insecure-requests; frame-ancestors 'self' https://stackexchange.com                    
+		Accept-Ranges: bytes                                                                                                    
+		Date: Mon, 29 Nov 2021 18:11:09 GMT                                                                                     
+		Via: 1.1 varnish                                                                                                        
+		Connection: close                                                                                                       
+		X-Served-By: cache-fra19127-FRA                                                                                         
+		X-Cache: MISS                                                                                                           
+		X-Cache-Hits: 0                                                                                                         
+		X-Timer: S1638209469.461872,VS0,VE92                                                                                    
+		Vary: Fastly-SSL                                                                                                        
+		X-DNS-Prefetch-Control: off                                                                                             
+		Set-Cookie: prov=7d8b7bb7-bf91-473c-99e1-94eac4950ff0; domain=.stackoverflow.com; expires=Fri, 01-Jan-2055 00:00:00 GMT;
+		 path=/; HttpOnly                                                                                                       
 	
 	
-1.	Повторите задание 1 в браузере, используя консоль разработчика F12.
-	откройте вкладку Network
-	отправьте запрос http://stackoverflow.com
-	найдите первый ответ HTTP сервера, откройте вкладку Headers
-	укажите в ответе полученный HTTP код.
+2.	РџРѕРІС‚РѕСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ 1 РІ Р±СЂР°СѓР·РµСЂРµ, РёСЃРїРѕР»СЊР·СѓСЏ РєРѕРЅСЃРѕР»СЊ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР° F12.
+	РѕС‚РєСЂРѕР№С‚Рµ РІРєР»Р°РґРєСѓ Network
+	РѕС‚РїСЂР°РІСЊС‚Рµ Р·Р°РїСЂРѕСЃ http://stackoverflow.com
+	РЅР°Р№РґРёС‚Рµ РїРµСЂРІС‹Р№ РѕС‚РІРµС‚ HTTP СЃРµСЂРІРµСЂР°, РѕС‚РєСЂРѕР№С‚Рµ РІРєР»Р°РґРєСѓ Headers
+	СѓРєР°Р¶РёС‚Рµ РІ РѕС‚РІРµС‚Рµ РїРѕР»СѓС‡РµРЅРЅС‹Р№ HTTP РєРѕРґ.
 	
-	Request URL: https://stackoverflow.com/
-	Request Method: GET
-	Status Code: 200 
-	Remote Address: 151.101.193.69:443
-	Referrer Policy: strict-origin-when-cross-origin
+		Request URL: https://stackoverflow.com/
+		Request Method: GET
+		Status Code: 200 
+		Remote Address: 151.101.193.69:443
+		Referrer Policy: strict-origin-when-cross-origin
 	
-	проверьте время загрузки страницы, какой запрос обрабатывался дольше всего?
-	приложите скриншот консоли браузера в ответ.
+	РїСЂРѕРІРµСЂСЊС‚Рµ РІСЂРµРјСЏ Р·Р°РіСЂСѓР·РєРё СЃС‚СЂР°РЅРёС†С‹, РєР°РєРѕР№ Р·Р°РїСЂРѕСЃ РѕР±СЂР°Р±Р°С‚С‹РІР°Р»СЃСЏ РґРѕР»СЊС€Рµ РІСЃРµРіРѕ?
+	РїСЂРёР»РѕР¶РёС‚Рµ СЃРєСЂРёРЅС€РѕС‚ РєРѕРЅСЃРѕР»Рё Р±СЂР°СѓР·РµСЂР° РІ РѕС‚РІРµС‚.
 	![2](img/2.JPG)
-1.	Какой IP адрес у вас в интернете?
-	81.177.126.28
-1.	Какому провайдеру принадлежит ваш IP адрес? Какой автономной системе AS? Воспользуйтесь утилитой whois
-	[Ростелеком/AS12389
-	vagrant@vagrant:~$ whois -h whois.radb.net 81.177.126.28
-	route:          81.177.126.0/24
-	descr:          ROSTELECOM NETS
-	origin:         AS12389
-	mnt-by:         ROSTELECOM-MNT
-	created:        2017-04-18T07:53:32Z
-	last-modified:  2017-04-18T07:53:32Z
-	source:         RIPE
-	remarks:        ****************************
-	remarks:        * THIS OBJECT IS MODIFIED
-	remarks:        * Please note that all data that is generally regarded as personal
-	remarks:        * data has been removed from this object.
-	remarks:        * To view the original object, please query the RIPE Database at:
-	remarks:        * http://www.ripe.net/whois
-	remarks:        ****************************]
+1.	РљР°РєРѕР№ IP Р°РґСЂРµСЃ Сѓ РІР°СЃ РІ РёРЅС‚РµСЂРЅРµС‚Рµ?
+
+		81.177.126.28
+1.	РљР°РєРѕРјСѓ РїСЂРѕРІР°Р№РґРµСЂСѓ РїСЂРёРЅР°РґР»РµР¶РёС‚ РІР°С€ IP Р°РґСЂРµСЃ? РљР°РєРѕР№ Р°РІС‚РѕРЅРѕРјРЅРѕР№ СЃРёСЃС‚РµРјРµ AS? Р’РѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СѓС‚РёР»РёС‚РѕР№ whois
+
+		[Р РѕСЃС‚РµР»РµРєРѕРј/AS12389
+		vagrant@vagrant:~$ whois -h whois.radb.net 81.177.126.28
+		route:          81.177.126.0/24
+		descr:          ROSTELECOM NETS
+		origin:         AS12389
+		mnt-by:         ROSTELECOM-MNT
+		created:        2017-04-18T07:53:32Z
+		last-modified:  2017-04-18T07:53:32Z
+		source:         RIPE
+		remarks:        ****************************
+		remarks:        * THIS OBJECT IS MODIFIED
+		remarks:        * Please note that all data that is generally regarded as personal
+		remarks:        * data has been removed from this object.
+		remarks:        * To view the original object, please query the RIPE Database at:
+		remarks:        * http://www.ripe.net/whois
+		remarks:        ****************************]
 	
-1.	Через какие сети проходит пакет, отправленный с вашего компьютера на адрес 8.8.8.8? Через какие AS? Воспользуйтесь утилитой traceroute
+1.	Р§РµСЂРµР· РєР°РєРёРµ СЃРµС‚Рё РїСЂРѕС…РѕРґРёС‚ РїР°РєРµС‚, РѕС‚РїСЂР°РІР»РµРЅРЅС‹Р№ СЃ РІР°С€РµРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР° РЅР° Р°РґСЂРµСЃ 8.8.8.8? Р§РµСЂРµР· РєР°РєРёРµ AS? Р’РѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СѓС‚РёР»РёС‚РѕР№ traceroute
+
 	![5](img/5.png)
-1.	Повторите задание 5 в утилите mtr. На каком участке наибольшая задержка - delay?
+1.	РџРѕРІС‚РѕСЂРёС‚Рµ Р·Р°РґР°РЅРёРµ 5 РІ СѓС‚РёР»РёС‚Рµ mtr. РќР° РєР°РєРѕРј СѓС‡Р°СЃС‚РєРµ РЅР°РёР±РѕР»СЊС€Р°СЏ Р·Р°РґРµСЂР¶РєР° - delay?
 	![6](img/6.JPG)
-1.	Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? воспользуйтесь утилитой dig
+1.	РљР°РєРёРµ DNS СЃРµСЂРІРµСЂР° РѕС‚РІРµС‡Р°СЋС‚ Р·Р° РґРѕРјРµРЅРЅРѕРµ РёРјСЏ dns.google? РљР°РєРёРµ A Р·Р°РїРёСЃРё? РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СѓС‚РёР»РёС‚РѕР№ dig
 	![7](img/7.JPG)
-1.	Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? воспользуйтесь утилитой dig
+1.	РџСЂРѕРІРµСЂСЊС‚Рµ PTR Р·Р°РїРёСЃРё РґР»СЏ IP Р°РґСЂРµСЃРѕРІ РёР· Р·Р°РґР°РЅРёСЏ 7. РљР°РєРѕРµ РґРѕРјРµРЅРЅРѕРµ РёРјСЏ РїСЂРёРІСЏР·Р°РЅРѕ Рє IP? РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СѓС‚РёР»РёС‚РѕР№ dig
 	![8](img/8.JPG)
