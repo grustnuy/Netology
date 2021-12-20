@@ -8,6 +8,7 @@ show ip route x.x.x.x/32
 show bgp x.x.x.x/32
 ```
 
+```
 route-views>show ip route 217.107.125.59
 Routing entry for 217.107.124.0/23, supernet
   Known via "bgp 6447", distance 20, metric 0
@@ -19,8 +20,8 @@ Routing entry for 217.107.124.0/23, supernet
       AS Hops 2
       Route tag 6939
       MPLS label: none
-
-
+```
+```
 route-views>show bgp 217.107.125.59
 BGP routing table entry for 217.107.124.0/23, version 2003732689
 Paths: (23 available, best #22, table default)
@@ -183,9 +184,9 @@ Paths: (23 available, best #22, table default)
       Community: 174:21101 174:22005
       path 7FE0F69C5370 RPKI State valid
       rx pathid: 0, tx pathid: 0
-
+```
 2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
-
+```
 source-directory /etc/network/interfaces.d
 auto dummy0
 iface dummy0 inet static
@@ -202,9 +203,9 @@ default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100
 10.0.2.2 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100
 172.16.10.0/24 dev eth0 scope link
 172.16.10.0/24 dev eth0 scope link metric 100
-
+```
 3. Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.
-
+```
 vagrant@vagrant:~$ ss -tl
 State        Recv-Q       Send-Q             Local Address:Port               Peer Address:Port      Process
 LISTEN       0            4096                     0.0.0.0:sunrpc                  0.0.0.0:*
@@ -216,8 +217,9 @@ LISTEN       0            4096                           *:9100                 
 LISTEN       0            4096                        [::]:sunrpc                     [::]:*
 LISTEN       0            128                         [::]:ssh                        [::]:*
 LISTEN       0            4096                       [::1]:8125                       [::]:*
-
+```
 4. Проверьте используемые UDP сокеты в Ubuntu, какие протоколы и приложения используют эти порты?
+```
 vagrant@vagrant:~$ ss -lu
 State        Recv-Q       Send-Q              Local Address:Port               Peer Address:Port      Process
 UNCONN       0            0                       127.0.0.1:8125                    0.0.0.0:*
@@ -226,7 +228,7 @@ UNCONN       0            0                  10.0.2.15%eth0:bootpc              
 UNCONN       0            0                         0.0.0.0:sunrpc                  0.0.0.0:*
 UNCONN       0            0                           [::1]:8125                       [::]:*
 UNCONN       0            0                            [::]:sunrpc                     [::]:*
-
+```
 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали. 
 
-![Терраформ](Diagram.drawio)
+![Home](Home.JPG)
