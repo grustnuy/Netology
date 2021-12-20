@@ -36,7 +36,7 @@ do
 	fi
 done
 ```
-Добавить скобку:while ((1==1))
+Нехватает скобки:while ((1==1))
 ```bash
 while ((1==1))
 do
@@ -78,7 +78,6 @@ done
 hosts=(192.168.0.1 173.194.222.113 87.250.250.242)
 timeout=5
 res=0
-
 while (($res == 0))
 do
     for h in ${hosts[@]}
