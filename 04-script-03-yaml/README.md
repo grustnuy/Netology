@@ -57,10 +57,10 @@ while True:
     if ip != serv[host]:
       if i==True and init !=1:
         is_error = True
-        with open(fpath+host+".json",'w') as jsf:
+        with open(fpath+host+".json", 'w') as jsf:
           json_data= json.dumps({host:ip})
           jsf.write(json_data)
-        with open(fpath + host + ".yaml", 'w') as ymf:
+        with open(fpath+host+".yaml", 'w') as ymf:
           yaml_data = yaml.dump([{host: ip}])
           ymf.write(yaml_data)
       serv[host]=ip
