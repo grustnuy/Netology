@@ -47,7 +47,7 @@ i = 1
 wait = 2
 serv = {'drive.google.com':'0.0.0.0', 'mail.google.com':'0.0.0.0', 'google.com':'0.0.0.0'}
 init=0
-fpath = "C:/Users/Smarzhic/Desktop/DevOps/" # путь к файлам json и yaml
+fpath = "/home/vagrant/Scripts/1/" # путь к файлам json и yaml
 
 print("Проверка IP")
 
