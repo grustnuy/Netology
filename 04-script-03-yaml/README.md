@@ -18,7 +18,7 @@
     }
 ```
   Нужно найти и исправить все ошибки, которые допускает наш сервис
-```
+```JSON
     { "info" : "Sample JSON output from our service\t",
         "elements" :[
             { "name" : "first",
@@ -27,7 +27,7 @@
             }
             { "name" : "second",
             "type" : "proxy",
-            "ip : 71.78.22.43"
+            "ip" : "71.78.22.43"
             }
         ]
     }
