@@ -352,13 +352,6 @@ chmod 755 update_cert.sh
 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
 
 
-49 21 * * * /root/script/update_crt.sh 
-Настраиваем обновление сертификата на 1 чаc, 10 минут, 1 числа, каждого месяца.
-
-10 1 1 * * /root/script/update_crt.sh
-
-
-
 
 ## Результат
 
@@ -371,43 +364,6 @@ chmod 755 update_cert.sh
 - Скрипт генерации нового сертификата работает (сертификат сервера ngnix должен быть "зеленым")
 - Crontab работает (выберите число и время так, чтобы показать что crontab запускается и делает что надо)
 
-## Как сдавать курсовую работу
-
-Курсовую работу выполните в файле readme.md в github репозитории. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
-
-Также вы можете выполнить задание в [Google Docs](https://docs.google.com/document/u/0/?tgif=d) и отправить в личном кабинете на проверку ссылку на ваш документ.
-Если необходимо прикрепить дополнительные ссылки, просто добавьте их в свой Google Docs.
-
-Перед тем как выслать ссылку, убедитесь, что ее содержимое не является приватным (открыто на комментирование всем, у кого есть ссылка), иначе преподаватель не сможет проверить работу. 
-Ссылка на инструкцию [Как предоставить доступ к файлам и папкам на Google Диске](https://support.google.com/docs/answer/2494822?hl=ru&co=GENIE.Platform%3DDesktop).
-
-
-
-MIIDMjCCAhqgAwIBAgIUHW9SX1iR+MUb620PtRpH40FLMW4wDQYJKoZIhvcNAQEL
-BQAwFTETMBEGA1UEAxMKaG9tZS5sb2NhbDAeFw0yMjAxMDgxOTQ3MjFaFw0yMjAy
-MDkxOTQ3NTBaMBUxEzARBgNVBAMTCmhvbWUubG9jYWwwggEiMA0GCSqGSIb3DQEB
-AQUAA4IBDwAwggEKAoIBAQD3stIT+Q6y0D0HimSmfRIgfnyevAq/rfwcIAXLxUQZ
-HatR9RXeKefQuRO/DcCd5tcF7tvy0SNNcNM9CVLnucpWK28CPmkE8EgUIIy8m8lR
-mVmVKN5BjboOrw2xfJ8y5aG2stzB/AqUvOUjC8w+92ayiSVzcRShf71Pw9vBE6iK
-y/tNjw/2yLsMSt7P4h0sFNneInUT9AmdEpwo4Nc0tJsZd5M4YL0+L8yDEYA3Vlzt
-SSqXnXE8ZhD4AdDesAfUirqTetSFGnVoINdSHn3D3OHsw7dwQ0qVRDmcLsdk7PDq
-jMkdK+gzR8roE8FfT8X3PXTrgs6gM6PvWblndYS1S9ixAgMBAAGjejB4MA4GA1Ud
-DwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSCsxIcTT84vYcF
-uaCt6UYExnOAgDAfBgNVHSMEGDAWgBSCsxIcTT84vYcFuaCt6UYExnOAgDAVBgNV
-HREEDjAMggpob21lLmxvY2FsMA0GCSqGSIb3DQEBCwUAA4IBAQDKgTbPCXP4/rCS
-70onwQ9/4F3ZQ/Zpmvu6LinM7QYXcTAtX42BiS2kCA7eHtpLJUN5e1AmKyJ5C0Di
-2zr1oEPExZ+k87eV2uMxo7eY0tVKanzm9KjJJgtHKZPUYVDytRBUDC37c98x7fqo
-Y82R1wXk3h5j1QnXKe/XVZsNvfHeA4C6IeLGf/80CXGELMEpEH6VXvWqbVPQdPuO
-AOa7IOziyKceybA0g+cllLSDn1Rr0NXsw7i4DPG6X8sPOLN+/UMa5kbAqrUJvwzr
-JRoWxcuhWWUG9iIUoNm9bjtUKIo+/3GHRhrc3iTNUrKJ8FFd512/ShyqIgWPQtwm
-Xn/NyKgG
-
-
-vault write -field=certificate pki/root/generate/internal \
-     common_name="home.local" \
-     ttl=87600h > CA_cert.crt
-
-/etc/nginx$ vi nginx.conf
 
 
 vault write auth/userpass/users/grustnuy password="gru-pass" policies="default"
