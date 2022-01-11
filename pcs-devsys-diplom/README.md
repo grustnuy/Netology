@@ -13,8 +13,8 @@
 		
 	sudo ufw default deny incoming
 	sudo ufw default allow outgoing
-	sudo ufw allow ssh / sudo ufw allow 22
-	sudo ufw allow https / sudo ufw allow 443
+	sudo ufw allow ssh 
+	sudo ufw allow https 
 	sudo ufw allow in on lo to any
 	sudo ufw allow out on lo to any
 	
@@ -85,16 +85,14 @@
 
 Устанавливаем пакет jq:
 ```	
-sudo apt install jq	```
-
-
-	Разрешаем автозапуск службы и если она не запущена, стартуем ее:
-```	systemctl enable vault --now```
-
-
-
-	Проверяем статус:
-	```
+sudo apt install jq	
+```
+Разрешаем автозапуск службы и если она не запущена, стартуем ее:
+```	
+systemctl enable vault --now
+```
+Проверяем статус:
+```
 	grustnuy@grustnuy-VB:~$ systemctl status vault
 ● vault.service - "HashiCorp Vault - A tool for managing secrets"
      Loaded: loaded (/lib/systemd/system/vault.service; enabled; vendor preset: enabled)
@@ -119,16 +117,17 @@ sudo apt install jq	```
 ```
 
 Правим конфиг:
+```
 sudo vi /etc/vault.d/vault.hcl
 listener "tcp" {
   address = "127.0.0.1:8282"
   tls_disable = 1
 }
-	
-	Настраиваем хранилище:
-	
+```	
+Настраиваем хранилище:
+```	
 export VAULT_ADDR=http://127.0.0.1:8282
-```
+
 grustnuy@grustnuy-VB:~$ vault status
 Key                Value
 ---                -----
@@ -144,9 +143,9 @@ Storage Type       file
 HA Enabled         false
 ```
 Инициализируем хранилище:
-
-vault operator init
 ```
+vault operator init
+
 grustnuy@grustnuy-VB:~$ vault operator init
 Unseal Key 1: QQ2e7jeiL71mDPCdTeIn8lDGnVIL221XJvwCaU56oIVl
 Unseal Key 2: TxiOfQpLzRJnp4SkMCZvTbvvo776+T7tojoVm0l02N3P
@@ -319,8 +318,7 @@ systemctl reload nginx
 
 ![8](img/8.JPG)
 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
-  - генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
-  - перезапускаем nginx для применения нового сертификата.
+  
 ``` 
 #!/usr/bin/env bash
 
@@ -347,23 +345,12 @@ vault operator seal
 # Перезапуск nginx
 systemctl reload nginx
 ```
-Ограничим права:
+Ограничиваем права:
+```
 chmod 755 update_cert.sh
+```
 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
+```
+25 21 11 * * /home/grustnuy/Scripts/update_cert.sh
+```
 
-
-
-## Результат
-
-Результатом курсовой работы должны быть снимки экрана или текст:
-
-- Процесс установки и настройки ufw
-- Процесс установки и выпуска сертификата с помощью hashicorp vault
-- Процесс установки и настройки сервера nginx
-- Страница сервера nginx в браузере хоста не содержит предупреждений 
-- Скрипт генерации нового сертификата работает (сертификат сервера ngnix должен быть "зеленым")
-- Crontab работает (выберите число и время так, чтобы показать что crontab запускается и делает что надо)
-
-
-
-vault write auth/userpass/users/grustnuy password="gru-pass" policies="default"
