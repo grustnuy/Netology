@@ -329,7 +329,7 @@ KEY="/etc/vault.d/keys"
 
 export VAULT_ADDR='http://127.0.0.1:8282'
 
-#Автоматическое открытие хранилища для тестового использования.   
+#Автоматическое открытие хранилища для домашнего использования:   
 #if [[ $(vault status -format=json | jq -r '.sealed') == true ]]
 #then
 #	UNKEY1=$(grep "Key 1:" $KEY | awk '{print $4}')
