@@ -322,35 +322,50 @@ systemctl reload nginx
 ``` 
 #!/usr/bin/env bash
 
-#Запуск vault если не запущен.
 systemctl start vault.service
 sleep 10
+exec 1> >(logger -s -t $(basename $0)) 2>&1
+KEY="/etc/vault.d/keys"
 
-#Открытие хранилища
 export VAULT_ADDR='http://127.0.0.1:8282'
-vault operator unseal QQ2e7jeiL71mDPCdTeIn8lDGnVIL221XJvwCaU56oIVl
-vault operator unseal YH/YBBoUVAsX/TTwob9ZguhwRhlsIdd8W5192tFgHMWz
-vault operator unseal IVxEyKCYDbjS2K6FJgZGvn6D21aBYsH9fLHevpBFITzZ
-vault login s.7Lvqp5q8Hfd7QqBxXpKkpGM4
+
+#Автоматическое открытие хранилища для тестового использования.   
+#if [[ $(vault status -format=json | jq -r '.sealed') == true ]]
+#then
+#	UNKEY1=$(grep "Key 1:" $KEY | awk '{print $4}')
+#	UNKEY2=$(grep "Key 2:" $KEY | awk '{print $4}')
+#	UNKEY3=$(grep "Key 3:" $KEY | awk '{print $4}')
+#	RTOKEN=$(grep "Root Token:" $KEY | awk '{print $4}')
+#	vault operator unseal $UNKEY1 > /dev/null
+#	vault operator unseal $UNKEY2 > /dev/null		
+#	vault operator unseal $UNKEY3 > /dev/null
+#	vault login $RTOKEN > /dev/null
+#fi
 
 #Создание сетрификатов
-TEMP_DATA=$(vault write -format=json pki_int/issue/home-dot-local common_name="home.local" ttl="720h")
-jq -r '.data.certificate' <<< "$TEMP_DATA" > /etc/ssl/certs/home.local.crt
-jq -r '.data.ca_chain[]' <<< "$TEMP_DATA" >> /etc/ssl/certs/home.local.crt
-jq -r '.data.private_key' <<< "$TEMP_DATA" > /etc/ssl/private/home.local.key
-
-#Закрытие хранилища
-vault operator seal
-
-# Перезапуск nginx
-systemctl reload nginx
+if [[ $(vault status -format=json | jq -r '.sealed') != true ]]
+    then
+        TEMP_DATA=$(vault write -format=json pki_int/issue/home-dot-local common_name="home.local" ttl="720h")
+        jq -r '.data.certificate' <<< "$TEMP_DATA" > /etc/ssl/certs/home.local.crt
+        jq -r '.data.ca_chain[]' <<< "$TEMP_DATA" >> /etc/ssl/certs/home.local.crt
+        jq -r '.data.private_key' <<< "$TEMP_DATA" > /etc/ssl/private/home.local.key
+        systemctl reload nginx
+    else
+        echo 'Error: Vault sealed'
+        exit 1
+fi		 
 ```
+Если хранилище запечатано пишеться ошибка:
+
+![Error](img/Error.JPG)
+	
 Ограничиваем права:
 ```
 chmod 755 update_cert.sh
 ```
 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
 ```
+crontab -e
 25 21 11 * * /home/grustnuy/Scripts/update_cert.sh
 ```
 
