@@ -15,7 +15,8 @@ grustnuy@VB2:~$sudo a2enmod ssl
 ```
 - Генерируем сертификат:
 ```
-root@VB2:/etc/apache2# openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs_home_cert.pem -keyout /etc/ssl/private/home_cert.key -subj "/C=RU/ST=Moscow/L=Moscow/O=Global Name/OU=Org/CN=home.local"
+root@VB2:/etc/apache2# openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs_home_cert.pem
+-keyout /etc/ssl/private/home_cert.key -subj "/C=RU/ST=Moscow/L=Moscow/O=Global Name/OU=Org/CN=home.local"
 Generating a RSA private key
 .......................+++++
 .......................+++++
