@@ -21,7 +21,7 @@ Hey, Netology
 </html>
 ```
 
-
+```
 vagrant@server1:~$ docker ps
 CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS         PORTS                                   NAMES
 b20a94a06fff   nginx     "/docker-entrypoint.…"   About an hour ago   Up 6 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   nginx
@@ -40,12 +40,12 @@ Hey, Netology
 <h1>I’m DevOps Engineer!</h1>
 </body>
 </html>
-
-![html](img\html.jpg)
-
+```
+  ![html](img/html.jpg)
+```
 vagrant@server1:~$ docker tag grustnuy/image:latest grustnuy/image:nginx_netology
 vagrant@server1:~$ docker push grustnuy/image:nginx_netology
-
+```
 <https://hub.docker.com/r/grustnuy/image>
 
 ## Задача 2
@@ -54,7 +54,7 @@ vagrant@server1:~$ docker push grustnuy/image:nginx_netology
 "Подходит ли в этом сценарии использование Docker контейнеров или лучше подойдет виртуальная машина, физическая машина? Может быть возможны разные варианты?"
 
 Сценарий | Условия использования |
-|:___________|:___________|
+|------|----------|
 | Высоконагруженное монолитное java веб-приложение| Физический сервер, т.к. монолитное и высоконагруженное (необходим физический доступ к ресурсами) |
 | Nodejs веб-приложение | Докер, в рамках микропроцессорной архитектуры хорошее решение |
 | Мобильное приложение c версиями для Android и iOS | Виртуальная машина -  приложение в докере не имеет GUI, а это по описанию не подходит |
