@@ -1,0 +1,40 @@
+FROM centos:7
+   
+ENV ES_USER="elastic"
+ENV ES_HOME="/opt/elasticsearch/elasticsearch-8.1.0"
+ENV ES_DATA="/var/lib/elasticsearch"
+ENV ES_LOG="/var/log/elasticsearch"
+ENV ES_BACKUP="/opt/backups"
+
+WORKDIR /opt/elasticsearch
+
+RUN yum install wget -y && \
+    yum install perl-Digest-SHA -y && \
+    wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.0-linux-x86_64.tar.gz && \
+    wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.0-linux-x86_64.tar.gz.sha512 && \
+    shasum -a 512 -c elasticsearch-8.1.0-linux-x86_64.tar.gz.sha512 && \
+    tar -xzf elasticsearch-8.1.0-linux-x86_64.tar.gz && \
+    rm -f elasticsearch-8.1.0-linux-x86_64.tar.gz && \
+    cd elasticsearch-8.1.0/ && \
+    yum autoremove -y && \
+    yum clean all -y
+  
+COPY elasticsearch.yml ${ES_HOME}/config/elasticsearch.yml
+
+RUN useradd "${ES_USER}" && \
+    mkdir -p "${ES_DATA}" && \
+    mkdir -p "${ES_LOG}" && \
+    mkdir -p "${ES_BACKUP}" && \
+    chown -R ${ES_USER}: /opt/elasticsearch && \
+    chown -R ${ES_USER}: "${ES_DATA}" && \
+    chown -R ${ES_USER}: "${ES_LOG}" && \
+    chown -R ${ES_USER}: "${ES_BACKUP}"
+
+USER ${ES_USER}
+
+WORKDIR "${ES_HOME}"
+ 
+EXPOSE 9200
+EXPOSE 9300    
+    
+CMD ["./bin/elasticsearch"]

@@ -1,0 +1,12 @@
+
+node.name: netology_test
+network.host: localhost
+path:
+  data: /var/lib/elasticsearch
+  logs: /var/log/elasticsearch
+  repo: /opt/backups
+xpack.security.enabled: false  
+xpack.security.http.ssl:
+  enabled: false
+http.host: [_local_, _site_]   
+  
