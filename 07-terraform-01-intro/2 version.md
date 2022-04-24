@@ -1,5 +1,6 @@
 
 Скачать и распаковать двоичный файл for Terraform 0.11в отдельный каталог:
+```
 $ cd /usr/local/tf/11
 $ wget https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip
 $ unzip terraform_0.11.14_linux_amd64.zip
@@ -14,4 +15,5 @@ ln -s /usr/local/tf/11/terraform /usr/bin/terraform13
 ln -s /usr/local/tf/12/terraform /usr/bin/terraform12
 # Make both the symlinks executable
 chmod ugo+x /usr/bin/terraform*
+```
 ---
