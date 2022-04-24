@@ -1,6 +1,5 @@
-
-Скачать и распаковать двоичный файл for Terraform 0.11в отдельный каталог:
 ```
+Скачать и распаковать двоичный файл for Terraform 0.11в отдельный каталог:
 $ cd /usr/local/tf/11
 $ wget https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip
 $ unzip terraform_0.11.14_linux_amd64.zip
