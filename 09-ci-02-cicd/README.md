@@ -15,8 +15,8 @@
 ### Основная часть
 
 1. Создаём новый проект, название произвольное
-	![img](img\create rep.jpg)
-admin123: 6754c20004126bc1963626ee8fa15b2bdbe3e7fe
+	![img](09-ci-02-cicd/img/create rep.jpg)
+
 2. Скачиваем пакет sonar-scanner, который нам предлагает скачать сам sonarqube
 3. Делаем так, чтобы binary был доступен через вызов в shell (или меняем переменную PATH или любой другой удобный вам способ)
 
@@ -46,15 +46,16 @@ sonar-scanner \
   -Dsonar.coverage.exclusions=fail.py
 ```
 6. Смотрим результат в интерфейсе
-	![img](img\fail_py.jpg)
+
+![img](img/fail_py.jpg)
 	
-	![img](img\fail_py-2.jpg)
+![img](img/fail_py-2.jpg)
 7. Исправляем ошибки, которые он выявил(включая warnings)
 8. Запускаем анализатор повторно - проверяем, что QG пройдены успешно
 9. Делаем скриншот успешного прохождения анализа, прикладываем к решению ДЗ
-   ![img](img\fail_py-3.jpg)
+   ![img](img/fail_py-3.jpg)
    
-   ![img](img\fail_py-4.jpg)
+   ![img](img/fail_py-4.jpg)
 ## Знакомство с Nexus
 
 ### Подготовка к выполнению
@@ -71,7 +72,7 @@ sonar-scanner \
 	```	
 
 6. Подключаемся под админом, меняем пароль, сохраняем анонимный доступ
-![img](img\nexus.jpg)
+![img](img/nexus.jpg)
 ### Основная часть
 
 1. В репозиторий `maven-public` загружаем артефакт с GAV параметрами:
@@ -82,10 +83,10 @@ sonar-scanner \
    5. type: tar.gz
 2. В него же загружаем такой же артефакт, но с version: 8_102
 3. Проверяем, что все файлы загрузились успешно
-![img](img\nexus2.jpg)
+![img](img/nexus2.jpg)
 4. В ответе присылаем файл `maven-metadata.xml` для этого артефекта
 
-![img](img\nexus3.jpg)
+![img](img/nexus3.jpg)
 
 ### Знакомство с Maven
 
