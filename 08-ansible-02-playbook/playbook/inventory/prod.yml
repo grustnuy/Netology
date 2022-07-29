@@ -2,6 +2,6 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: 51.250.89.21
+      ansible_host: <your_ip >
       ansible_connection: ssh
       ansible_ssh_user: grustnuy
